@@ -1,2 +1,2 @@
-# mysucceed.github.io
-blog
+# blog
+
