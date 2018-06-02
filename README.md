@@ -1,0 +1,2 @@
+# mysucceed.github.io
+blog
