@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<title></title>
+</head>
+<body>
+	<div id="app"></div>
+</body>
+<script src="dist/snabbdom.js"></script>
+<script src="dist/snabbdom-class.js"></script>
+<script src="dist/snabbdom-props.js"></script>
+<script src="dist/snabbdom-style.js"></script>
+<script src="dist/snabbdom-eventlisteners.js"></script>
+<script src="dist/h.js"></script>
+<script src="dist/tovnode.js"></script>
+<script type="text/javascript">
+	
+	var patch = snabbdom.init([ // Init patch function with chosen modules
+	  snabbdom_class.default, // makes it easy to toggle classes
+	  snabbdom_props.default, // for setting properties on DOM elements
+	  snabbdom_style.default, // handles styling on elements with support for animations
+	  snabbdom_eventlisteners.default, // attaches event listeners
+	]);
+    
+    //h accepts a tag/selector as a string,
+    //an optional data object and an optional string or array of children.
+    //h 创建一个新的vnode，第一个参数标签或者选择器作为字符串，[] 子节点， data {}
+	var h = h.default; // helper function for creating vnodes
+
+	var app = document.getElementById('app');
+     
+    //新的虚拟dom
+    var inputVal = "";
+
+    function creatNewVnode(){
+	    var vnode = h('div#app', 
+			[   
+			    h(
+			        "div",
+			        [   
+			            "您输入了",
+                        h(
+                        	"span",
+                        	{
+					            style: {color: 'red'},
+					            key: "content"
+					        },
+					        inputVal
+                        )      
+			        ]
+			    ),
+			    h(
+			    	'input', 
+			        {
+				    	props: {type:"text", value: inputVal, placeholder: "请输入信息"},
+				    	on:{change: changeEvent},
+				    	class:{name: true}
+			        }
+			    )
+		    ]
+		);	
+		return vnode;
+    }
+	 
+	// Patch into empty DOM element – this modifies the DOM as a side effect
+	// The first is a DOM element or a vnode representing the current view. 
+    // The second is a vnode representing the new, updated view.
+    // 第一个参数是原生dom节点或者当前的vdone
+    // 第二个参数表示新的,更新视图的节点
+	patch(tovnode.default(app), creatNewVnode());
+
+    function changeEvent(e){
+    	inputVal = e.target.value;
+    	console.log( patch(tovnode.default(app), creatNewVnode()) );
+    }
+</script>
+</html>
