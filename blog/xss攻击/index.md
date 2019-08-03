@@ -1,5 +1,4 @@
 ---
-layout: post
 title:  "xss攻击"
 tags:
 categories:
