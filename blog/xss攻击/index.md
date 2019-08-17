@@ -9,6 +9,7 @@
 ### 存储型
 存储型XSS和反射型XSS的差别仅在于，提交的代码会存储在服务器（数据库，内存，文件系统等），下次请求目标页面时不用再提交XSS代码。
 ## 如何针对性防御
+<<<<<<< HEAD
 使用htmlparser.js，过滤掉一些元素，例如，script，style，link，iframe，frame等。	
 也可以过滤掉元素的属性，例如error，onclick事件。
 ```javaScript
@@ -48,8 +49,16 @@ function filterTag(tag){
 	return false
 }
 ```
+=======
+
+>>>>>>> 1d6674e7a6136d8b81376ae56633abe1b7557586
 ## 模拟xss攻击
 1. 开发者从url中获取携带的参数值，解析为html标签插入页面。攻击者利用网站的漏洞，参数值携带恶意的js攻击代码，可以实现获取用户的cookie信息，篡改页面，注入iframe广告页面等。	
 ![xss](https://mysucceed.github.io/images/xss1.gif)
 2. 评价功能页面，在留言框内输入js代码，提交到服务器。当其他用户查看这条留言的时候，就会触发带有恶意的js攻击代码。	
 ![xss](https://mysucceed.github.io/images/xss0.gif)
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 1d6674e7a6136d8b81376ae56633abe1b7557586
