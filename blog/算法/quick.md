@@ -4,7 +4,9 @@
 	1. 从数组中选择一个元素作为基数（取中间值）
 	2. 元素和基数做比较，比基数小的元素在左侧数组，反之比基数大的元素在右侧数组，基准值放在中间
 	3. 左侧和右侧的数组分别进行上述的1,2步操作
+	
 ![快速排序](https://mysucceed.github.io/images/快排1.png)
+
 ``` javascript
 	function quickSort(arr){
 		if(arr.length <= 1){
@@ -32,7 +34,9 @@
 	3. 循环数组，元素小于基数时，指针右移一位（i+1），元素和[i]元素互换位置
 	4. 循环结束后，基数与[i]元素互换位置
 	5. i作为数据的分界点，数组组成[0-i，i，i+1-end]
+	
 ![快速排序](https://mysucceed.github.io/images/快排2.png)
+
 ``` javascript
 	function qucikMain(arr, start, end){
 		if(end - start < 1){
