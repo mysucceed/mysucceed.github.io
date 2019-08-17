@@ -11,7 +11,7 @@
 ## 如何针对性防御
 使用htmlparser.js，过滤掉一些元素，例如，script，style，link，iframe，frame等。	
 也可以过滤掉元素的属性，例如error，onclick事件。
-```javaScript
+``` javascript
 function parseHtmlStr(htmlString){
 	var result = "";
 	var curtTag = "";
